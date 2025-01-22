@@ -17,12 +17,12 @@ class Data: ObservableObject {
     @Published var articles = [Article]()
     
     init() {
-        let url = URL(string: "")!
-        
-        URLSession.shared.dataTask(with: url) {
-            (data, response, error) in DispatchQueue.main.async {
+        let url = URL(string: "http://localhost:8080/article/list")!
+    
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            DispatchQueue.main.async {
                 self.articles = try! JSONDecoder().decode([Article].self, from: data!)
             }
-        }
+        }.resume()
     }
 }

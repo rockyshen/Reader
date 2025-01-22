@@ -8,8 +8,19 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var data = Data()    // 订阅数据，在父视图中订阅数据
+    
     var body: some View {
-        Row()
+        NavigationView {
+            List(data.articles) { article in
+                NavigationLink(destination:
+                    Detail(article: article)) {
+                    Row(article: article)
+                }
+            }
+            .navigationTitle("编辑推荐")
+        }
+        
     }
 }
 
