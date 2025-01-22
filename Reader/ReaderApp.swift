@@ -9,9 +9,17 @@ import SwiftUI
 
 @main
 struct ReaderApp: App {
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            // TODO 此处调用LocalAuthentication可以添加解锁逻辑
+            TabView {
+                ContentView()
+                    .tabItem { Label("阅读列表", systemImage: "books.vertical") }
+                ReadingNote()
+                    .tabItem { Label("笔记", systemImage: "note.text") }
+            }
+            
         }
     }
 }
