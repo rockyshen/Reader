@@ -17,7 +17,7 @@ struct Detail: View {
             }
             .padding()
         }
-        .navigationTitle(article.title)
+        .navigationBarTitle(article.title)
     }
 }
 

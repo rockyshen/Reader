@@ -8,11 +8,19 @@
 import SwiftUI
 
 struct Setting: View {
+    @Binding var darkMode: Bool
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Button(action: {
+            Vibration.selection.vibrate()   // 切换成功，震动反馈
+            darkMode.toggle()
+        }) {
+            Image(systemName: darkMode ? "sun.max.fill" : "moon.fill")
+                .font(.system(.headline, design: .rounded))
+        }
     }
 }
 
 #Preview {
-    Setting()
+    Setting(darkMode: .constant(false))
 }

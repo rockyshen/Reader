@@ -10,7 +10,11 @@ import SwiftUI
 struct ContentView: View {
     @StateObject var data = Data()    // 订阅数据，在父视图中订阅数据
     
+    //@State var darkMode = false  // App退到后台，这个值就没了
+    @AppStorage("darkMode") var darkMode = false   // 应用存储
+    
     var body: some View {
+        // 导航视图
         NavigationView {
             List(data.articles) { article in
                 NavigationLink(destination:
@@ -18,9 +22,12 @@ struct ContentView: View {
                     Row(article: article)
                 }
             }
-            .navigationTitle("编辑推荐")
+            .navigationBarTitle("编辑推荐")
+            .toolbar {
+                Setting(darkMode: $darkMode)
+            }
         }
-        
+        .preferredColorScheme(darkMode ? .dark : .light)
     }
 }
 
