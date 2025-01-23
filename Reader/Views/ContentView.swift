@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject var data = Data()    // 订阅数据，在父视图中订阅数据
+    @StateObject var data = TabReadingData()    // 订阅数据，在父视图中订阅数据
     
     //@State var darkMode = false  // App退到后台，这个值就没了
     @AppStorage("darkMode") var darkMode = false   // 应用存储

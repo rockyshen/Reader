@@ -1,7 +1,7 @@
 //
 //  Data.swift
 //  Reader
-//  从互联网获取JSON数据，并进行序列化与反序列化
+//  Reading页：从互联网获取JSON数据，并进行序列化与反序列化
 //  Created by 沈俊杰 on 2025/1/21.
 //
 
@@ -13,7 +13,7 @@ struct Article: Codable, Identifiable {
     var body: String
 }
 
-class Data: ObservableObject {
+class TabReadingData: ObservableObject {
     @Published var articles = [Article]()
     
     init() {
